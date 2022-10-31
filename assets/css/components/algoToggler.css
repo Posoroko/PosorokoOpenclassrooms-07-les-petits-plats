@@ -1,0 +1,19 @@
+
+.togglerBox {
+    display: flex;
+    align-items: center;
+}
+
+.toggler {
+    cursor: pointer;
+    font-size: 30px;
+    margin: 0 5px;
+}
+
+.algoTogglerOn {
+    display: inline;
+}
+
+.algoTogglerOff {
+    display: none;
+}

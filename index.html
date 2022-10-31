@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://fav.farm/🍳" /> 
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Les prtits plats</title>
+</head>
+<body>
+    <header class="centered">
+        <div class="togglerBox">
+            
+            <span>array methods</span>
+            <span class="icon toggler algoTogglerOn">toggle_on</span>
+            <span class="icon toggler algoTogglerOff">toggle_off</span>
+            <span>native loops</span>
+            
+        </div>
+        <img class="logo" src="https://user.oc-static.com/upload/2020/08/14/15973932905401_logo%20%281%29.png" alt="logo du site Les bons petits plats">
+    </header>
+
+    <main id="main">
+        <section class="relative flex marginTop50">
+            <div class="searchBar" id="mainSearchBar">Rechercher une recette</div>
+
+            <div class="searchIconBox">
+                <svg class="searchIcon" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
+                <path d="M39.8,41.9L26.6,28.8c-1,0.9-2.2,1.5-3.5,2c-1.3,0.5-2.8,0.7-4.2,0.7c-3.6,0-6.6-1.3-9.1-3.8c-2.5-2.5-3.8-5.5-3.8-9 s1.2-6.5,3.8-9s5.5-3.8,9.1-3.8c3.5,0,6.5,1.2,9,3.8s3.7,5.5,3.7,9c0,1.4-0.2,2.8-0.7,4.1c-0.5,1.3-1.2,2.6-2.1,3.8L42,39.7 L39.8,41.9z M18.8,28.5c2.7,0,5-1,6.9-2.9c1.9-1.9,2.9-4.2,2.9-6.9s-1-5-2.9-6.9s-4.2-2.9-6.9-2.9c-2.7,0-5.1,1-7,2.9S9,16,9,18.7 s1,5,2.9,6.9S16.1,28.5,18.8,28.5z"/>
+                </svg>
+            </div>
+        </section>
+
+        <section class="searchParamsBox marginTop30">
+            <div class="tagBox flex" id="tagBox">
+                
+            </div>
+
+            <div class="filterBox marginTop20 flex wrap">
+                
+                <div class="filter ingredients pointer" id="ingredients" data-type="ingredients">
+                    <div class="titleBox">
+                        <div>
+                            <span class="filterTitle" id="titleIngrédients" data-default="Ingrédients" data-type="ingredients">Ingrédients</span>
+                        </div>
+                  
+                        <span class="icon expandMore pointer" data-ref="listOfIngredients" id="ingMore" data-swapFor="ingLess">expand_more</span>
+                        <span class="icon expandLess pointer" data-ref="listOfIngredients" id="ingLess" data-swapFor="ingMore">expand_less</span>
+                    </div>
+                    <div class="filterListBox closedFilterBox" id="listOfIngredients">
+                        <!-- filters are injected here -->
+                    </div>
+                </div>
+
+                <div class="filter appareils pointer" id="appliance" data-type="appliance">
+                    <div class="titleBox">
+                        <div>
+                            <span class="filterTitle" id="titleAppareils" data-default="Appareils" data-type="appliance">Appareils</span>
+                        </div>
+
+                        <span class="icon expandMore pointer" data-ref="listOfAppliances" id="appMore" data-swapFor="appLess">expand_more</span>
+                        <span class="icon expandLess pointer" data-ref="listOfAppliances" id="appLess" data-swapFor="appMore">expand_less</span>
+                    </div>
+
+                    <div class="filterListBox closedFilterBox" id="listOfAppliances">
+                        <!-- filters are injected here -->
+                    </div>
+                </div>
+
+                <div class="filter ustensiles pointer" id="ustensils" data-type="ustensils">
+                    <div class="titleBox">
+                        <div>
+                            <span class="filterTitle" id="titleUstensiles" data-default="Ustensiles" data-type="ustensils">Ustensiles</span>
+                        </div>
+                    
+                        <span class="icon expandMore pointer" data-ref="listOfUstensils" id="ustMore" data-swapFor="ustLess">expand_more</span>
+                        <span class="icon expandLess pointer" data-ref="listOfUstensils" id="ustLess" data-swapFor="ustMore">expand_less</span>
+                    </div>
+
+                    <div class="filterListBox closedFilterBox" id="listOfUstensils">
+                        <!-- filters are injected here -->
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <section class="cardCollection">
+            
+        </section>
+    </main>
+
+    <script type="module" src="./assets/js/main.js"></script>
+    
+</body>
+</html>

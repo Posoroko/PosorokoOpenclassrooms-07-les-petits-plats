@@ -1,0 +1,83 @@
+/* import basic Posoroko styles */
+@import url("https://legendary-donut-99380b.netlify.app/basic-styles/basicStyles.css");
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
+
+@import url("./variables.css");
+@import url("./components/recipeCard.css");
+@import url("./components/filters.css");
+@import url("./components/algoToggler.css");
+
+html {
+    width: 1440px;
+    margin: auto;
+    position: relative;
+}
+
+.logo {
+    width: 268px;
+    margin-top: 50px;
+}
+
+*{
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.icon {
+    font-family: 'Material Icons' ;
+}
+
+section {
+    margin: 0 2vw;
+}
+.recipeCard, .filter, .searchBar,  .searchIconBox{
+    margin: 1vw 1vw;
+}
+
+.searchBar {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #e7e7e7;
+    padding: 2em;
+    border: none;
+    border-radius: 7px;
+    white-space: break-spaces;
+}
+.searchIconBox {
+    height: 100%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    right: 0;
+    display: flex;
+}
+.searchIcon {
+    height: 80px;
+    aspect-ratio: 1/1;
+    padding: 10px;
+    
+}
+
+.tag {
+    color: white;
+    font-size: 22px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-right: var(--main-margin);
+    vertical-align: middle;
+    cursor: pointer;
+}
+.tag .name {
+    margin-right: var(--main-margin);
+}
+
+.tagClose {
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 1px;
+    border: 3px solid white;
+    border-radius: 50%;
+}

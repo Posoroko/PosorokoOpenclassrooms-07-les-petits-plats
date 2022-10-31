@@ -1,0 +1,6 @@
+.animatedCursor {
+    height: 100%;
+    border: 1px solid white;
+    display: inline-block;
+    animation: blinker 1s linear infinite;
+}

@@ -1,0 +1,67 @@
+.cardCollection {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.recipeCard {
+    width: 380px;
+    height: 364px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 20px;
+    align-self: flex-start;
+}
+.imgBox {
+    height: 178px;
+    background-color: var(--gray);
+}
+
+.recipeCard figcaption {
+    height: 178px;
+    background-color: var(--light-gray);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.recipeCard figcaption h3 {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.prepTime {
+    display: flex;
+    align-items: center;
+}
+.prepTime .icon {
+    font-size: 22px;
+    margin-right: 8px;
+}
+.ingredientList {
+    font-weight: 600;
+    list-style: none;
+    margin: 0;
+}
+.recipe {
+    font-weight: 400;
+}
+.ingredientList, .recipe {
+    width: 40%;
+    height: 7em;
+    font-size: 12px;
+    margin: 0;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+

@@ -1,0 +1,24 @@
+:root {
+
+    /* color-scheme */
+    
+    --blue: #3282f7;
+    --green: #68d9a4;
+    --red: #ed6454;
+    --light-gray: #e7e7e7;
+    --gray: #c7bebe;
+
+    /* links */
+    --nonvisitedlink: #004890;
+    --visitedlink: #540875;
+
+    /* format */
+
+    --main-width: min(95%, 1600px);
+    --border-radius: 12px;
+    --filter-option-width: 200px;
+
+    --main-margin: max(1vw, 5px);
+
+    
+} 

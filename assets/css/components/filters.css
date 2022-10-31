@@ -1,0 +1,85 @@
+@import url("./animatedCursor.css");
+
+
+.filterBox{
+    height: 70px;
+}
+
+.filter {
+    min-width: 170px;
+    max-width:  min(100%, calc(var(--filter-option-width) * 3.5));
+    min-height: 69px;
+    max-height: 350px;
+    color: white;
+    font-weight: 700px;
+    /* padding: 10px 20px; */
+    border-radius: 10px;
+    margin-right: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: flex-start;
+    overflow: scroll;
+}
+
+/* the list that is toggled on and off when the user opens a filter box */
+.filterListBox {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filterListBox p {
+    width: 30%;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.filter div .icon {
+    font-size: 40px;
+    margin-left: 20px;
+    /* position: absolute;
+    top: 0;
+    right: 0; */
+}
+
+.expandLess {
+    display: none;
+}
+
+.ingredients {
+    background-color: var(--blue);
+}
+.appareils {
+    background-color: var(--green);
+}
+.ustensiles {
+    background-color: var(--red);
+}
+.optionBox {
+    height: 200px;
+    width: calc(var(--filter-option-width) * 3.5);
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: scroll;
+}
+
+
+.filter  .titleBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    caret-color: transparent;
+    padding: 10px 15px;
+    caret-color: white;
+}
+.filterTitle {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
