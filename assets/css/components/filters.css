@@ -12,9 +12,8 @@
     max-height: 350px;
     color: white;
     font-weight: 700px;
-    /* padding: 10px 20px; */
     border-radius: 10px;
-    margin-right: 20px;
+    margin: 20px 20px 0 0;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -25,12 +24,13 @@
 
 /* the list that is toggled on and off when the user opens a filter box */
 .filterListBox {
+    width: 100%;
     display: none;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.filterListBox p {
+.filterOption {
     width: 30%;
     font-size: 20px;
     margin-bottom: 10px;
@@ -39,9 +39,6 @@
 .filter div .icon {
     font-size: 40px;
     margin-left: 20px;
-    /* position: absolute;
-    top: 0;
-    right: 0; */
 }
 
 .expandLess {
@@ -77,9 +74,14 @@
     padding: 10px 15px;
     caret-color: white;
 }
+
 .filterTitle {
     font-size: 20px;
     font-weight: 600;
     padding: 10px 15px;
     border-radius: 10px;
+    display: block;
+}
+.input[contenteditable="true"] {
+    min-width: 350px;
 }

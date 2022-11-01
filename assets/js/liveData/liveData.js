@@ -1,3 +1,5 @@
+import { mainSearch } from "../searching/mainSearch.js";
+
 // keeps track of the currently selected ingredients
 export let selectedIngredients = [];
 // <=
@@ -14,9 +16,33 @@ export let selectedUstensils = [];
 export let searchQuery = "";
 // <=
 
+//list of tags currently active
+export let tagList = [];
+// <=
+
 export const updateSearchQuery = (string) => {
     searchQuery = string;
 }
+export const resetSearchQuery = () => {
+    searchQuery = '';
+    // console.log(searchQuery.charCodeAt(0))
+}
+
+//these trigger a new mainSearch that generates new selectedFilters arrays and selectedRecipe Array
+export const addToTagList = (value, type) => {
+    tagList.push({
+        value: value,
+        type: type
+    });
+    mainSearch();
+}
+export const removeFromTagList = (e) => {
+    let index = e.currentTarget.getAttribute('data-index');
+    tagList.splice(index, 1);
+    console.log(tagList)
+    mainSearch();
+}
+// <=
 
 export const updateSelectedFilters = {
     ingredients: (ingredient) => {

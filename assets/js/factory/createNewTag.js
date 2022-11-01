@@ -1,21 +1,21 @@
-export const createNewTag = (elem, removeTag, type) => {
-    const tag = document.createElement('span');
-    tag.classList.add('tag');
-    tag.setAttribute('name', elem.innerText);
-    tag.style.backgroundColor = elem.getAttribute('data-bgColor');
-    tag.setAttribute('data-type', type)
-        const name = document.createElement('span');
-        name.classList.add('name');
-        name.innerText = elem.innerText;
+import { removeFromTagList } from "../liveData/liveData.js";
 
+//creates a new tag element. it knows the index of its place in the tagList and uses it to remove it from there.
+export const newTag = (value, type, index) => {
+    const tag = document.createElement('div');
+    tag.classList.add('tag', type);
+        const text = document.createElement('span');
+            text.classList.add('name');
+            text.innerText = value;
         const close = document.createElement('span');
-        close.classList.add("tagClose", "icon");
-        close.setAttribute('name', elem.id);
-        close.innerText = "close";
-        close.addEventListener('click', removeTag);
-
-    tag.appendChild(name);
+            close.classList.add("tagClose", "icon");
+            close.setAttribute('data-index', index);
+            close.innerText = "close";
+            close.addEventListener('click', removeFromTagList);
+    tag.appendChild(text);
     tag.appendChild(close);
+    
 
     return tag;
 }
+// <=

@@ -1,7 +1,7 @@
 import { mainSearchBar } from "../dom/domElements.js"
 import { noTextin, innerTextOf } from "../tools/nodeManipulation.js";
 import { mainSearch } from "../searching/mainSearch.js";
-import { updateSearchQuery } from "../liveData/liveData.js";
+import { updateSearchQuery, resetSearchQuery, searchQuery } from "../liveData/liveData.js";
 
 /*
 Search is triggered when user enters 3 chars minimum.
@@ -21,11 +21,15 @@ const initiateMainSearchBar = () => {
 
 //will trigger everytime the user types a character in the main search bar
 const handleKeyup = (e) => {
-    if(mainSearchBar.innerText.length < 3) {
-        return
+    let input = e.target.innerText;
+    if(input.length == 1 && input.charCodeAt(0) == 10) {
+        console.log('line feed')
+        e.target.innerText = '';
     }
-
-    updateSearchQuery(e.currentTarget.innerText.toLocaleLowerCase())
+    if(e.target.innerText.length < 3 && e.key != "Backspace") {
+        return;
+    }
+    updateSearchQuery(e.target.innerText);
     mainSearch();
 }
 // <=

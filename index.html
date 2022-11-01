@@ -23,7 +23,7 @@
     </header>
 
     <main id="main">
-        <section class="relative flex marginTop50">
+        <section class="relative flex">
             <div class="searchBar" id="mainSearchBar">Rechercher une recette</div>
 
             <div class="searchIconBox">
@@ -34,17 +34,17 @@
             </div>
         </section>
 
-        <section class="searchParamsBox marginTop30">
+        <section class="searchParamsBox">
             <div class="tagBox flex" id="tagBox">
                 
             </div>
 
-            <div class="filterBox marginTop20 flex wrap">
+            <div class="filterBox flex wrap">
                 
                 <div class="filter ingredients pointer" id="ingredients" data-type="ingredients">
                     <div class="titleBox">
                         <div>
-                            <span class="filterTitle" id="titleIngrédients" data-default="Ingrédients" data-type="ingredients">Ingrédients</span>
+                            <span class="filterTitle input" contenteditable="false" id="titleIngrédients" data-default="Ingrédients" data-type="ingredients">Ingrédients</span>
                         </div>
                   
                         <span class="icon expandMore pointer" data-ref="listOfIngredients" id="ingMore" data-swapFor="ingLess">expand_more</span>

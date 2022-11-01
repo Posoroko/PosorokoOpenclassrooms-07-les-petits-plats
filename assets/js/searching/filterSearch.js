@@ -1,69 +1,119 @@
 import { recipes } from "../../data/db.js";
 import { appendNewFilter } from "../components/filterBoxes.js";
-import { selectedIngredients, selectedAppliances, selectedUstensils, updateSelectedFilters } from "../liveData/liveData.js";
+import { selectedIngredients, selectedAppliances, selectedUstensils, updateSelectedFilters, tagList } from "../liveData/liveData.js";
 
 
 // these functions create new arrays of filters every time the list of recipes is updated
 
-export const searchIngFilters = (recipe) => {
-    if(selectedIngredients) {
-        for(let i = 0; i < selectedIngredients.length; i++) {
-    
-            console.log(selectedIngredients[0])
-    
-            for(let j = 0; j < recipe.ingredients.length; j++ ) {
-    
-                if( selectedIngredients[i] != recipe.ingredients[j].ingredient) {
-                    console.log(recipe.ingredients[j].ingredient)
-                    updateSelectedFilters.ingredients(recipe.ingredients[j].ingredient);
-                    appendNewFilter(recipe.ingredients[j].ingredient, "listOfIngredients");
-                    
-                }
-                break;
+export const extractIngFilters = (ingredients) => {
+
+    let there = false
+    for(let i = 0; i < ingredients.length; i++) {
+
+        tagList.forEach( tag => {
+            // console.log(tag.value, ingredients[i])
+            if( tag.value == ingredients[i]) {
+                there = true
             }
-    FFFUUUCCCKKK TTTHHHAATTTT
+        })
+
+        if(selectedIngredients.includes(ingredients[i])) {
+
+            there = true;
         }
-    }else {
-        console.log(recipe.ingredients[j].ingredient)
-        updateSelectedFilters.ingredients(recipe.ingredients[j].ingredient);
-        appendNewFilter(recipe.ingredients[j].ingredient, "listOfIngredients");
+
+        if(!there) {
+            addFilter(ingredients[i], 'ingredients', "listOfIngredients", "ingredient");
+        }
     }
-// je sais pas si la boucle est dans le bon sens.. la recette ou la grande liste en premier? 
+
+}
+
+
+
+
+
+
+
+export const extractAppFilters = (appliance) => {
+
+    let there = false;
+    tagList.forEach(tag => {
+
+        if(tag.value == appliance) {
+            there = true;
+        }
+    })
+    if(there) { 
+        return;
+    }
+    if(selectedAppliances.includes(appliance)) {
+        return;
+    }
+
+    addFilter(appliance, "appliances", "listOfAppliances", "appliance");
     
 }
 
-export const searchAppFilters = (recipe) => {
 
-    for(let j = 0; j < selectedAppliances.length; j++ ) {
-            console.log('eric')
-        if(recipe.appliance == selectedAppliances[j] ) {
-            break;
-        }
-        updateSelectedFilters.appliances(recipe.appliance);
-        appendNewFilter(recipe.appliance, "listOfAppliances");
-    }
-    
-}
 
-export const searchUstFilters = (recipe) => {
-    
-    let ustensils = recipe.ustensils;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const extractUstFilters = (ustensils) => {
     for(let i = 0; i < ustensils.length; i++) {
-        
-        for(let j = 0; j < selectedUstensils.length; j++ ) {
-            
-            if(ustensils[i] == selectedUstensils[j] ) {
-                
-                break;
-            }
-            updateSelectedFilters.ustensils(ustensils[i]);
-            appendNewFilter(recipe.ustensils[i], "listOfUstensils");
+        if(tagList.includes(ustensils[i])) {
+            continue;
         }
-        
-        
-        
+        if(selectedUstensils.includes(ustensils[i])) {
+            continue;
+        }
+        addFilter(ustensils[i], 'ustensils', "listOfUstensils", "ustensil");
     }
+}
+
+
     
     
+
+
+
+
+
+
+
+
+
+
+
+//filter: value, array: array of active filters, collection: node where to append the filter, type: type of filter
+const addFilter = (filter, array, collection, type) => {
+    updateSelectedFilters[array](filter.toLowerCase());
+    appendNewFilter(filter.toLowerCase(), collection, type);
+}
+
+const filterIsInTagList = (filter) => {
+    if(tagList.length == 0) {
+        
+        return false;
+    }
+
+    for(let i = 0; i < tagList.length; i++) {
+
+        if(filter == tagList[i].value) {
+            return true;
+        }
+    }
+    return false;
 }
