@@ -1,7 +1,7 @@
 import { filters } from '../dom/domElements.js';
 import { addToTagList } from '../liveData/liveData.js';
 import { newFilterOption } from '../factory/createFilterOption.js';
-import { activateFilterSearchBar } from './filterSearchBar.js';
+import { activateFilterSearchBar, deactivateFilterSearchBar, activeBar } from './filterSearchBar.js';
 
 //these functions handle the display of the filter boxes: open, close, swap arraows
 
@@ -15,6 +15,7 @@ const openFilterBox = (clickedArrow, ref, swapFor) => {
 }
 
 const closeFilterBox = (clickedArrow, ref, swapFor) => {
+    deactivateFilterSearchBar();
     clickedArrow.classList.replace('openFilterBox', 'closedFilterBox');
 
     swapArrows(clickedArrow, swapFor);
@@ -34,6 +35,10 @@ const closeOpenBoxes = () => {
             arrow.click()
         }
     })
+    if(activeBar) {
+        deactivateFilterSearchBar();
+    }
+    
 }
 
 export const initiateFilterBoxes = () => {

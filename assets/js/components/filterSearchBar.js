@@ -1,23 +1,37 @@
 import { filters } from '../dom/domElements.js'
 
+// contails the DOM element 
+export let activeBar = null;
+// <=
+
+let filterType = null;
 
 export const activateFilterSearchBar = (clickedArrow) => {
 
-    let activeBar = clickedArrow.parentNode.querySelector('.input');
-
+    activeBar = clickedArrow.parentNode.querySelector('.input');
+    filterType = activeBar.getAttribute('data-type');
     activeBar.setAttribute('contentEditable', 'true');
     activeBar.innerText = '';
     activeBar.focus();
     activeBar.addEventListener('keyup', (e) => {
         filterSearch(e.target, clickedArrow);
     } )
+    activeBar.addEventListener('focusout', resetBarText );
 
+}
+
+export const deactivateFilterSearchBar = () => {
+    console.log(filterType);
+    activeBar.setAttribute('contenteditable', "false"),
+    activeBar.innerText = filterType;
+    activeBar = null;
+    filterType = null;
 }
 
 
 const filterSearch = (bar, clickedArrow) => {
 
-    let string = bar.innerText;
+    let string = bar.innerText.toLowerCase();
     let listRef = clickedArrow.getAttribute('data-ref');
     console.log(string.charCodeAt(0), listRef);
     let filterNodes = filters[listRef].children;
@@ -32,4 +46,19 @@ const filterSearch = (bar, clickedArrow) => {
         }
     }
 
+}
+
+const resetBarText = () => {
+    
+    if(activeBar.innerText == "") {
+        activeBar.innerText = filterType;
+        return;
+    }
+    if(activeBar.innerText == filterType) {
+        return;
+    }
+    if(activeBar.innerText.charCodeAt(0) == 10) {
+        activeBar.innerText = filterType;
+        return
+    }
 }
