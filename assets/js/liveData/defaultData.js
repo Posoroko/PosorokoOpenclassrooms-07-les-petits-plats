@@ -15,7 +15,7 @@ export const buildArrayOfFormatedRecipes = () => {
     
 }
 
-const formatRecipe = (recipe, index) => {
+export const formatRecipe = (recipe, index) => {
     
     let ingredients = extractIngredients(recipe.ingredients);
     let appliance = recipe.appliance.toLowerCase();

@@ -8,6 +8,7 @@ import { emptyCardCollection } from '../components/cardCollection.js';
 import { injectRecipeToTheDom } from "../components/cardCollection.js";
 import { emptyFilterList } from '../components/filterBoxes.js';
 import { renderTagList } from '../components/tagList.js';
+import { formatRecipe } from '../liveData/defaultData.js';
 
 //HQ of searching
 // loops through selectedRecipes to look for searchQuery.
@@ -19,6 +20,7 @@ import { renderTagList } from '../components/tagList.js';
         //if filter is a tag, it's rendered invisible
     //lists of filters are updated
 //recipe[i] !contains searchQuery => recipe[i] is deleted from selectedRecipes
+
 
 
 export const mainSearch = () => {
@@ -35,27 +37,55 @@ export const mainSearch = () => {
 
 }
 
+// const searchWithArrayMethods = () => {
+//     
+//     formatedRecipes.forEach( recipe => {
+
+//         let valid = false;
+
+//         if(recipeContainsAllTags(recipe) == true ) {
+//             valid = true;
+//         }
+//         if(valid) {
+//             let index = searchQueryIsFoundInRecipe(searchQuery, recipe);
+
+//             if( index > -1) {
+
+//                 injectRecipeToTheDom(recipes[index]);
+//                 extractIngFilters(recipe.ingredients);
+//                 extractAppFilters(recipe.appliance);
+//                 extractUstFilters(recipe.ustensils);
+//             } 
+//         }
+
+//     })
+//     console.timeEnd("test");
+// }
 const searchWithArrayMethods = () => {
     console.time("test");
-    formatedRecipes.forEach( recipe => {
-
+    let index = 0;
+    recipes.forEach( recipe => {
+        
+        let formatedRecipe = formatRecipe(recipe, index); 
+        
         let valid = false;
 
-        if(recipeContainsAllTags(recipe) == true ) {
+        if(recipeContainsAllTags(formatedRecipe) == true ) {
             valid = true;
         }
         if(valid) {
-            let index = searchQueryIsFoundInRecipe(searchQuery, recipe);
+            let index = searchQueryIsFoundInRecipe(searchQuery, formatedRecipe);
 
             if( index > -1) {
 
                 injectRecipeToTheDom(recipes[index]);
-                extractIngFilters(recipe.ingredients);
-                extractAppFilters(recipe.appliance);
-                extractUstFilters(recipe.ustensils);
+                extractIngFilters(formatedRecipe.ingredients);
+                extractAppFilters(formatedRecipe.appliance);
+                extractUstFilters(formatedRecipe.ustensils);
             } 
         }
 
+        index++;
     })
     console.timeEnd("test");
 }
