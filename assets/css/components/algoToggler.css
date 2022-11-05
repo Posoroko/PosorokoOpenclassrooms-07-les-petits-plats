@@ -2,6 +2,8 @@
 .togglerBox {
     display: flex;
     align-items: center;
+    position: absolute;
+    left: 5vw;
 }
 
 .toggler {

@@ -39,7 +39,6 @@ export const addToTagList = (value, type) => {
 export const removeFromTagList = (e) => {
     let index = e.currentTarget.getAttribute('data-index');
     tagList.splice(index, 1);
-    console.log(tagList)
     mainSearch();
 }
 // <=

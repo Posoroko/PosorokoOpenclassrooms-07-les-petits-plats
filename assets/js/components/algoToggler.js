@@ -2,7 +2,7 @@ import { algoToggler } from "../dom/domElements.js"
 import { handleAlgoSelection } from "../config/config.js";
 
 export const initializeAlgoToggler = () => {
-    algoToggler.togglerBox.style.display = "none";
+    algoToggler.togglerBox.style.display = "flex";
     document.addEventListener('keydown', showToggler);
     
 

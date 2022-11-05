@@ -23,7 +23,7 @@ const initiateMainSearchBar = () => {
 const handleKeyup = (e) => {
     let input = e.target.innerText;
     if(input.length == 1 && input.charCodeAt(0) == 10) {
-        console.log('line feed')
+
         e.target.innerText = '';
     }
     if(e.target.innerText.length < 3 && e.key != "Backspace") {

@@ -59,9 +59,17 @@ export const strignifyIngredients = (arrayOfIngredientObj) => {
 export const arrayToLowerCase = (array) => {
     let newArray = [];
 
-    for(let i = 0; i < array.length; i++) {
-        newArray = [...newArray, array[i].toLowerCase()];
+    if(algoUsingNativeLoops) {
+        for(let i = 0; i < array.length; i++) {
+            newArray = [...newArray, array[i].toLowerCase()];
+        }    
+    } else {
+        array.forEach( elem => {
+            newArray = [...newArray, elem.toLowerCase()];
+        })
     }
+
+    
     return newArray;
 }
 

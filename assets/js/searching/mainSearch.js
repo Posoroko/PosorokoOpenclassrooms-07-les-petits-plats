@@ -42,38 +42,34 @@ export const mainSearch = () => {
 
 }
 
-
-
-
-
-
 const searchWithNativeLoops = () => {
-    
+    console.time("test");
     for(let i = 0; i < formatedRecipes.length; i++ ) {
 
         const recipe = formatedRecipes[i];
+
+        let index = searchQueryIsFoundInRecipe(searchQuery, recipe);
         
         if(recipeContainsAllTags(recipe) == false ) {
             continue;
         }
 
-        let index = searchQueryIsFoundInRecipe(searchQuery, recipe);
-
         if( index > -1) {
 
-            injectRecipeToTheDom(recipes[i]);
+            injectRecipeToTheDom(recipes[index]);
             extractIngFilters(recipe.ingredients);
             extractAppFilters(recipe.appliance);
             extractUstFilters(recipe.ustensils);
         } 
     }
+    console.timeEnd("test");
 }
 
 const searchWithArrayMethods = () => {
-
-    let valid = false;
-
+    console.time("test");
     formatedRecipes.forEach( recipe => {
+
+        let valid = false;
 
         if(recipeContainsAllTags(recipe) == true ) {
             valid = true;
@@ -83,7 +79,7 @@ const searchWithArrayMethods = () => {
 
             if( index > -1) {
 
-                injectRecipeToTheDom(recipes[i]);
+                injectRecipeToTheDom(recipes[index]);
                 extractIngFilters(recipe.ingredients);
                 extractAppFilters(recipe.appliance);
                 extractUstFilters(recipe.ustensils);
@@ -91,16 +87,17 @@ const searchWithArrayMethods = () => {
         }
 
     })
-
+    console.timeEnd("test");
 }
 
 const searchQueryIsFoundInRecipe = (searchQuery, recipe) => {
-
+    
     if(recipe.mainString.includes(searchQuery)) {
         return recipe.index
     }
+    
     return -1;
-
+    
 }
 
 const recipeContainsAllTags = (recipe) => {
@@ -148,6 +145,4 @@ const recipeContainsAllTags = (recipe) => {
 
     return true;
 
-    
-    
 }
