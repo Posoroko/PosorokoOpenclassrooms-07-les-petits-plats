@@ -22,10 +22,3 @@ export const filters = {
 
 
 const cardCollection = document.querySelector('.cardCollection');
-
-
-export const algoToggler = {
-    togglerBox: document.querySelector('.togglerBox'),
-    on: document.querySelector('.algoTogglerOn'),
-    off: document.querySelector('.algoTogglerOff')
-}

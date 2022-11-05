@@ -1,7 +1,7 @@
 import { mainSearchBar } from "../dom/domElements.js"
-import { noTextin, innerTextOf } from "../tools/nodeManipulation.js";
+import { innerTextOf } from "../tools/nodeManipulation.js";
 import { mainSearch } from "../searching/mainSearch.js";
-import { updateSearchQuery, resetSearchQuery, searchQuery } from "../liveData/liveData.js";
+import { updateSearchQuery } from "../liveData/liveData.js";
 
 /*
 Search is triggered when user enters 3 chars minimum.

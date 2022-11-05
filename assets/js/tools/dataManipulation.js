@@ -1,5 +1,3 @@
-import { algoUsingNativeLoops } from "../config/config.js";
-
 let recipeString = true;
 
 export const strignifyRecipe = (recipe) => {
@@ -10,15 +8,9 @@ export const strignifyRecipe = (recipe) => {
 
     let string = null
 
-    if(algoUsingNativeLoops == true) {
+    string = name.concat(ingredients).concat(description);
 
-        string = `${name} ${strignifyIngredients(ingredients)} ${description}`;
-
-    }else {
-
-        string = name.concat(ingredients).concat(description);
-
-    }
+    
 
 
     return string.toLowerCase();
@@ -30,28 +22,9 @@ export const strignifyIngredients = (arrayOfIngredientObj) => {
     let array = [];
     let ingredientString = "";
 
-        //using native loops
-        if(algoUsingNativeLoops) {
-            for (let i = 0; i < arrayOfIngredientObj.length; i++) {
-
-                //creating the arry
-                array = [ ...array, arrayOfIngredientObj[i].ingredient]
-                ingredientString = ingredientString + " " + arrayOfIngredientObj[i].ingredient.toLowerCase();
-            }
-        
- 
-        return ingredientString;
-        
-    }
-
-    //using array methods
-
-    for(let i = 0; i < arrayOfIngredientObj.length; i++) {
-        array = [ ...array, arrayOfIngredientObj[i].ingredient]
-    }
-
-    
-    
+    arrayOfIngredientObj.forEach( obj => {
+        array = [ ...array, obj.ingredient]
+    });
 
     return ingredientString = array.join(" ");
 }
@@ -59,17 +32,10 @@ export const strignifyIngredients = (arrayOfIngredientObj) => {
 export const arrayToLowerCase = (array) => {
     let newArray = [];
 
-    if(algoUsingNativeLoops) {
-        for(let i = 0; i < array.length; i++) {
-            newArray = [...newArray, array[i].toLowerCase()];
-        }    
-    } else {
-        array.forEach( elem => {
-            newArray = [...newArray, elem.toLowerCase()];
-        })
-    }
+    array.forEach( elem => {
+        newArray = [...newArray, elem.toLowerCase()];
+    })
 
-    
     return newArray;
 }
 

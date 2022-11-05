@@ -4,8 +4,6 @@ import { resetSelectedFilters, searchQuery, tagList } from "../liveData/liveData
 import { extractIngFilters } from "./filterSearch.js";
 import { extractAppFilters } from "./filterSearch.js";
 import { extractUstFilters } from "./filterSearch.js";
-import { strignifyRecipe } from "../tools/dataManipulation.js";
-import { algoUsingNativeLoops } from "../config/config.js";
 import { emptyCardCollection } from '../components/cardCollection.js';
 import { injectRecipeToTheDom } from "../components/cardCollection.js";
 import { emptyFilterList } from '../components/filterBoxes.js';
@@ -32,37 +30,9 @@ export const mainSearch = () => {
     emptyCardCollection();
 
     renderTagList();
-    
 
-    if(algoUsingNativeLoops) {
-        searchWithNativeLoops();
-        return
-    }
     searchWithArrayMethods();
 
-}
-
-const searchWithNativeLoops = () => {
-    console.time("test");
-    for(let i = 0; i < formatedRecipes.length; i++ ) {
-
-        const recipe = formatedRecipes[i];
-
-        let index = searchQueryIsFoundInRecipe(searchQuery, recipe);
-        
-        if(recipeContainsAllTags(recipe) == false ) {
-            continue;
-        }
-
-        if( index > -1) {
-
-            injectRecipeToTheDom(recipes[index]);
-            extractIngFilters(recipe.ingredients);
-            extractAppFilters(recipe.appliance);
-            extractUstFilters(recipe.ustensils);
-        } 
-    }
-    console.timeEnd("test");
 }
 
 const searchWithArrayMethods = () => {

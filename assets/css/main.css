@@ -6,7 +6,6 @@
 @import url("./variables.css");
 @import url("./components/recipeCard.css");
 @import url("./components/filters.css");
-@import url("./components/algoToggler.css");
 @import url("./components/tagList.css");
 
 html {

@@ -1,4 +1,3 @@
-import { recipes } from "../../data/db.js";
 import { appendNewFilter } from "../components/filterBoxes.js";
 import { selectedIngredients, selectedAppliances, selectedUstensils, updateSelectedFilters, tagList } from "../liveData/liveData.js";
 

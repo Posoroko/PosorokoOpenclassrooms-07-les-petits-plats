@@ -1,8 +1,6 @@
 import { renderNewCardCollection } from "../facftory/renderNewCardCollection.js"
 import { replaceCardCollection } from "../components/cardCollection.js";
 import { getRecipes } from "../db/getFilters.js";
-import { fullCardCollection } from "../components/cardCollection.js";
-import { strignifyRecipe } from "../tools/dataManipulation.js"
 import { mainSearch } from "./mainSearch.js"
 import { applyTagFilters } from "./applyTagFilters.js"
 import { indexOfObjWithParameter } from "../tools/dataManipulation.js";

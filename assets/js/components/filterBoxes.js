@@ -1,5 +1,4 @@
 import { filters } from '../dom/domElements.js';
-import { addToTagList } from '../liveData/liveData.js';
 import { newFilterOption } from '../factory/createFilterOption.js';
 import { activateFilterSearchBar, deactivateFilterSearchBar, activeBar } from './filterSearchBar.js';
 
