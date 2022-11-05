@@ -37,30 +37,6 @@ export const mainSearch = () => {
 
 }
 
-// const searchWithArrayMethods = () => {
-//     
-//     formatedRecipes.forEach( recipe => {
-
-//         let valid = false;
-
-//         if(recipeContainsAllTags(recipe) == true ) {
-//             valid = true;
-//         }
-//         if(valid) {
-//             let index = searchQueryIsFoundInRecipe(searchQuery, recipe);
-
-//             if( index > -1) {
-
-//                 injectRecipeToTheDom(recipes[index]);
-//                 extractIngFilters(recipe.ingredients);
-//                 extractAppFilters(recipe.appliance);
-//                 extractUstFilters(recipe.ustensils);
-//             } 
-//         }
-
-//     })
-//     console.timeEnd("test");
-// }
 const searchWithArrayMethods = () => {
     console.time("test");
     let index = 0;
