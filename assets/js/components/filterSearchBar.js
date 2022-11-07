@@ -37,7 +37,7 @@ export const deactivateFilterSearchBar = () => {
 }
 
 
-const filterSearch = (bar, clickedArrow) => {
+export const filterSearch = (bar, clickedArrow) => {
 
     let string = bar.innerText.toLowerCase();
     let listRef = clickedArrow.getAttribute('data-ref');
@@ -56,6 +56,9 @@ const filterSearch = (bar, clickedArrow) => {
 }
 
 const resetBarText = () => {
+    // if(boxClosed == true) {
+
+    // }
     
     if(activeBar.innerText == "") {
         activeBar.innerText = displayName;
