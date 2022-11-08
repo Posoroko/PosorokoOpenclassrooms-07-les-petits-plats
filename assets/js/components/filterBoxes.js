@@ -1,61 +1,46 @@
 import { filters } from '../dom/domElements.js';
 import { newFilterOption } from '../factory/createFilterOption.js';
-import { activateFilterSearchBar, deactivateFilterSearchBar, activeBar } from './filterSearchBar.js';
+import { arrayToLowerCase } from '../tools/dataManipulation.js';
+import { activateFilterSearchBar, resetFiltersWhenBoxIsClosed } from './filterSearchBar.js';
 
 //these functions handle the display of the filter boxes: open, close, swap arraows
 
-const openFilterBox = (clickedArrow, ref, swapFor) => {
+let thereIsAnOpenBox = false;
 
-    closeOpenBoxes();
-    clickedArrow.classList.replace('closedFilterBox', 'openFilterBox');
-    swapArrows(clickedArrow, swapFor);
-    document.getElementById(ref).style.display = "flex";
-    activateFilterSearchBar(clickedArrow);
-}
-
-const closeFilterBox = (clickedArrow, ref, swapFor) => {
-    deactivateFilterSearchBar();
-    clickedArrow.classList.replace('openFilterBox', 'closedFilterBox');
-
-    swapArrows(clickedArrow, swapFor);
-    document.getElementById(ref).style.display = "none";
-}
-
-const swapArrows = (clickedArrow, swapFor) => {
-    clickedArrow.style.display = "none";
-    document.getElementById(swapFor).style.display = "inline";
-}
-
-
-const closeOpenBoxes = () => {
-    const expandLessArrows = document.querySelectorAll('.expandLess');
-    expandLessArrows.forEach( arrow => {
-        if(arrow.style.display == "inline") {
-            arrow.click()
-        }
-    })
-    if(activeBar) {
-        deactivateFilterSearchBar();
+const openFilterBox = (boxToBeOpen) => {
+    
+    if(thereIsAnOpenBox) {
+        closeTheOpenBox();
     }
+    thereIsAnOpenBox = true;
+
+    boxToBeOpen.classList.replace('closedBox', 'openBox');
+    activateFilterSearchBar(boxToBeOpen);
     
 }
+
+const closeTheOpenBox = () => {
+    const boxToBeClosed = document.querySelector('.openBox');
+    boxToBeClosed.classList.replace('openBox', 'closedBox');
+    thereIsAnOpenBox = false;
+    resetFiltersWhenBoxIsClosed(boxToBeClosed);
+}
+
+
+
+
 
 export const initiateFilterBoxes = () => {
     filters.expandMore.forEach( arrow => {
         arrow.addEventListener('click', (e) => {
-            const clickedArrow = e.currentTarget;
-            const ref = clickedArrow.getAttribute('data-ref');
-            const swapFor = clickedArrow.getAttribute('data-swapFor');
-            openFilterBox(clickedArrow, ref, swapFor);
+            const boxToBeOpen = document.getElementById(e.currentTarget.getAttribute('data-ref'));
+            openFilterBox(boxToBeOpen);
         });
     });
 
     filters.expandLess.forEach( arrow => {
         arrow.addEventListener('click', (e) => {
-            const clickedArrow = e.currentTarget;
-            const ref = clickedArrow.getAttribute('data-ref');
-            const swapFor = clickedArrow.getAttribute('data-swapFor');
-            closeFilterBox(clickedArrow, ref, swapFor);
+            closeTheOpenBox();
         });
     });
 

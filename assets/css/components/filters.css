@@ -22,14 +22,20 @@
     align-self: flex-start;
     overflow: hidden;
 }
+/*shows the list of filter when the box is opened by the user*/
+.openBox .filterListBox {
+    display: flex;
+}
+.closedBox .filterListBox {
+    display: none;
+}
+/* --  */
 
-/* the list that is toggled on and off when the user opens a filter box */
 .filterListBox {
     width: 100%;
     max-height: 300px;
     padding: 10px;
     margin-bottom: 10px;
-    display: none;
     flex-wrap: wrap;
     justify-content: space-around;
     overflow: scroll;
@@ -46,7 +52,10 @@
     margin-left: 20px;
 }
 
-.expandLess {
+.closedBox .expandLess {
+    display: none;
+}
+.openBox .expandMore {
     display: none;
 }
 
@@ -69,20 +78,32 @@
     overflow: scroll;
 }
 
+.openBox .filterTitle {
+    display: none;
+}
+.closedBox .filterSearchBar {
+    display: none;
+}
+.filterSearchBar {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
 
-.filter  .titleBox {
+.titleBox  {
     width: 100%;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     caret-color: transparent;
+    display: flex;
     padding: 10px 15px;
     caret-color: white;
 }
 
-.filterTitle {
-    font-size: 20px;
+.filterTitle, .filterSearchBar {
+    font-size: 18px;
     font-weight: 600;
+    color: white;
     padding: 10px 15px;
     border-radius: 10px;
     display: block;

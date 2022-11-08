@@ -28,33 +28,26 @@ html {
 
 .icon {
     font-family: 'Material Icons' ;
+    user-select: none;
 }
 
 .searchBar {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     background-color: #e7e7e7;
-    padding: 2em;
+    padding: 2rem;
     border: none;
     border-radius: 7px;
-    margin-top: 20px;
-    white-space: break-spaces;
     position: relative;
 }
-.searchIconBox {
-    /* height: 100%; */
+
+.iconBox {
+    height: 100%;
+    padding: 1rem;
     aspect-ratio: 1/1;
     position: absolute;
-    right: 15px;
-    bottom: 50%;
-    transform: translateY(60%);
-    display: flex;
-    /* border: 1px solid red; */
-}
-.searchIcon {
-    height: 80px;
-    aspect-ratio: 1/1;
-    padding: 10px;    
+    right: 0;
+    top: 0;
 }
 

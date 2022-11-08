@@ -7,19 +7,17 @@ export let activeBar = null;
 let filterType = null;
 let displayName = null;
 
-export const activateFilterSearchBar = (clickedArrow) => {
+export const activateFilterSearchBar = (openFilterBox) => {
 
-    activeBar = clickedArrow.parentNode.querySelector('.input');
+    console.log(openFilterBox)
+    activeBar = openFilterBox.querySelector('.filterSearchBar');
     filterType = activeBar.getAttribute('data-type');
     displayName = activeBar.getAttribute('data-displayName');
-
-    activeBar.setAttribute('contentEditable', 'true');
-    activeBar.innerText = '';
     activeBar.focus();
+    
     activeBar.addEventListener('keyup', (e) => {
-        filterSearch(e.target, clickedArrow);
+        filterSearch(e.target, openFilterBox.querySelector('.filterListBox'));
     } )
-    activeBar.addEventListener('focusout', resetBarText );
 
     activeBar.addEventListener('click', () => {
         if(activeBar.innerText == activeBar.getAttribute('data-displayName')) {
@@ -37,15 +35,14 @@ export const deactivateFilterSearchBar = () => {
 }
 
 
-export const filterSearch = (bar, clickedArrow) => {
-
-    let string = bar.innerText.toLowerCase();
-    let listRef = clickedArrow.getAttribute('data-ref');
-    let filterNodes = filters[listRef].children;
+export const filterSearch = (bar, listBox) => {
     
+    let string = bar.value.toLowerCase();
+
+    let filterNodes = listBox.children;
+
     for(let i = 0; i < filterNodes.length; i++) {
         let option = filterNodes[i];
-
         if(!option.id.includes(string)) {
             option.style.display = "none";
         }else {
@@ -55,20 +52,13 @@ export const filterSearch = (bar, clickedArrow) => {
 
 }
 
-const resetBarText = () => {
-    // if(boxClosed == true) {
-
-    // }
+export const resetFiltersWhenBoxIsClosed = (boxToBeClosed) => {
     
-    if(activeBar.innerText == "") {
-        activeBar.innerText = displayName;
-        return;
-    }
-    if(activeBar.innerText == displayName) {
-        return;
-    }
-    if(activeBar.innerText.charCodeAt(0) == 10) {
-        activeBar.innerText = displayName;
-        return
-    }
+    const bar = boxToBeClosed.querySelector('.filterSearchBar');
+    const listBox = boxToBeClosed.querySelector('.filterListBox')
+    console.log(filters)
+    bar.value = '';
+    //resets all filters by search for an empty string
+    filterSearch(bar, listBox);
+    // <=
 }
