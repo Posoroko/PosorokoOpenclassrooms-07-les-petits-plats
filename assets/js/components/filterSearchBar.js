@@ -34,6 +34,14 @@ export const deactivateFilterSearchBar = () => {
     filterType = null;
 }
 
+export const emptySearchBar = (clickedOption) => {
+    const ref = clickedOption.getAttribute('data-ref');
+    const bar = document.getElementById(ref).querySelector('.filterSearchBar');
+    bar.value = '';
+    const listBox = document.getElementById(ref).querySelector('.filterListBox');
+    console.log(bar);
+    filterSearch(bar, listBox);
+}
 
 export const filterSearch = (bar, listBox) => {
     
