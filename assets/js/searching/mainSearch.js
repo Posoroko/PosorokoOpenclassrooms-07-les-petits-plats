@@ -24,7 +24,7 @@ export const mainSearch = () => {
 }
 
 const searchWithArrayMethods = () => {
-    console.time("test");
+
     let index = 0;
     recipes.forEach( recipe => {
         
@@ -49,7 +49,6 @@ const searchWithArrayMethods = () => {
 
         index++;
     })
-    console.timeEnd("test");
 }
 
 const searchQueryIsFoundInRecipe = (searchQuery, recipe) => {
