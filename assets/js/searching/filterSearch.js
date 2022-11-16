@@ -20,11 +20,8 @@ export const extractIngFilters = (ingredients) => {
         if(selectedIngredients.includes(ingredients[i])) {
             continue;
         }
-        
-        addFilter(ingredients[i], 'ingredients', "listOfIngredients", "ingredient");
-
+        addFilter(ingredients[i].toLowerCase(), 'ingredients', "listOfIngredients", "ingredient");
     }
-
 }
 
 export const extractAppFilters = (appliance) => {
@@ -42,7 +39,7 @@ export const extractAppFilters = (appliance) => {
         return;
     }
 
-    addFilter(appliance, "appliances", "listOfAppliances", "appliance");   
+    addFilter(appliance.toLowerCase(), "appliances", "listOfAppliances", "appliance");   
 }
 
 export const extractUstFilters = (ustensils) => {
@@ -61,14 +58,18 @@ export const extractUstFilters = (ustensils) => {
         if(selectedUstensils.includes(ustensils[i])) {
             continue;
         }
-        addFilter(ustensils[i], 'ustensils', "listOfUstensils", "ustensil");
+        addFilter(ustensils[i].toLowerCase(), 'ustensils', "listOfUstensils", "ustensil");
     }
 }
 
-//filter: value, array: array of active filters, collection: node where to append the filter, type: type of filter
-const addFilter = (filter, array, collection, type) => {
-    updateSelectedFilters[array](filter.toLowerCase());
-    appendNewFilter(filter.toLowerCase(), collection, type);
+//filter: apple,
+//category: ingredients,
+//collection: listOfIngredients (where the option will be appended in the dom)
+//type: ingredient
+const addFilter = (filter, category, collection, type) => {
+    // console.log(filter, category, collection, type)
+    updateSelectedFilters[category](filter.toLowerCase());
+    appendNewFilter(filter, category, collection, type);
 }
 
 const filterIsInTagList = (filter) => {

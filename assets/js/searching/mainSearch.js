@@ -1,5 +1,4 @@
 import { recipes } from '../../data/db.js';
-import { formatedRecipes } from '../liveData/defaultData.js';
 import { resetSelectedFilters, searchQuery, tagList } from "../liveData/liveData.js";
 import { extractIngFilters } from "./filterSearch.js";
 import { extractAppFilters } from "./filterSearch.js";
@@ -9,19 +8,6 @@ import { injectRecipeToTheDom } from "../components/cardCollection.js";
 import { emptyFilterList } from '../components/filterBoxes.js';
 import { renderTagList } from '../components/tagList.js';
 import { formatRecipe } from '../liveData/defaultData.js';
-
-//HQ of searching
-// loops through selectedRecipes to look for searchQuery.
-// turn recipe[i] into string
-// recipeString contains searchQuery ?
-//  recipeString contains one of the tag?
-    //=> recipe [i] is rendered in the dom
-    // filters are extracted from recipe[i]
-        //if filter is a tag, it's rendered invisible
-    //lists of filters are updated
-//recipe[i] !contains searchQuery => recipe[i] is deleted from selectedRecipes
-
-
 
 export const mainSearch = () => {
     

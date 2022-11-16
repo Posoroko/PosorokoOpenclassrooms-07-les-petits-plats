@@ -17,9 +17,10 @@ export const buildArrayOfFormatedRecipes = () => {
 
 export const formatRecipe = (recipe, index) => {
     
-    let ingredients = extractIngredients(recipe.ingredients);
+    //array of sipmplified ingredients
+    let ingredients = recipe.ingredients.map(ing => ing.ingredient.toLowerCase());
     let appliance = recipe.appliance.toLowerCase();
-    let ustensils = arrayToLowerCase(recipe.ustensils);
+    let ustensils = recipe.ustensils.map(ust => ust = ust.toLowerCase());
 
     let customRecipe = {
         mainString: `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${strignifyIngredients(recipe.ingredients)}`,
@@ -28,6 +29,7 @@ export const formatRecipe = (recipe, index) => {
         ustensils: ustensils,
         index: index
     }
+ 
     return customRecipe;
 
 }

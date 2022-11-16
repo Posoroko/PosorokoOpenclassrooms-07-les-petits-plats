@@ -9,8 +9,8 @@ export const tagBox = document.getElementById('tagBox');
 export const filters = {
     filters: document.querySelectorAll('.filter'),
     ingredients: document.getElementById('ingredients'),
-    appareils: document.getElementById('appareils'),
-    ustensiles: document.getElementById('ustensiles'),
+    appliances: document.getElementById('appliances'),
+    ustensils: document.getElementById('ustensils'),
     title: document.querySelectorAll('filterTitle'),
     expandMore: document.querySelectorAll('.expandMore'),
     expandLess: document.querySelectorAll('.expandLess'),

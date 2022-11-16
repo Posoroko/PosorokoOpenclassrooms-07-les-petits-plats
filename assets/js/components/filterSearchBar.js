@@ -8,11 +8,8 @@ let filterType = null;
 let displayName = null;
 
 export const activateFilterSearchBar = (openFilterBox) => {
-
-    console.log(openFilterBox)
     activeBar = openFilterBox.querySelector('.filterSearchBar');
     filterType = activeBar.getAttribute('data-type');
-    displayName = activeBar.getAttribute('data-displayName');
     activeBar.focus();
     
     activeBar.addEventListener('keyup', (e) => {
@@ -28,18 +25,15 @@ export const activateFilterSearchBar = (openFilterBox) => {
 }
 
 export const deactivateFilterSearchBar = () => {
-    activeBar.setAttribute('contenteditable', "false"),
-    activeBar.innerText = displayName;
     activeBar = null;
     filterType = null;
 }
 
-export const emptySearchBar = (clickedOption) => {
-    const ref = clickedOption.getAttribute('data-ref');
+export const emptySearchBar = (ref) => {
+
     const bar = document.getElementById(ref).querySelector('.filterSearchBar');
     bar.value = '';
     const listBox = document.getElementById(ref).querySelector('.filterListBox');
-    console.log(bar);
     filterSearch(bar, listBox);
 }
 
@@ -64,7 +58,6 @@ export const resetFiltersWhenBoxIsClosed = (boxToBeClosed) => {
     
     const bar = boxToBeClosed.querySelector('.filterSearchBar');
     const listBox = boxToBeClosed.querySelector('.filterListBox')
-    console.log(filters)
     bar.value = '';
     //resets all filters by search for an empty string
     filterSearch(bar, listBox);

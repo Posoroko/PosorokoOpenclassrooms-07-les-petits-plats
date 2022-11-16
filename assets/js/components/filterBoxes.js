@@ -8,15 +8,12 @@ import { activateFilterSearchBar, resetFiltersWhenBoxIsClosed } from './filterSe
 let thereIsAnOpenBox = false;
 
 const openFilterBox = (boxToBeOpen) => {
-    
     if(thereIsAnOpenBox) {
         closeTheOpenBox();
     }
     thereIsAnOpenBox = true;
-
     boxToBeOpen.classList.replace('closedBox', 'openBox');
     activateFilterSearchBar(boxToBeOpen);
-    
 }
 
 const closeTheOpenBox = () => {
@@ -43,13 +40,12 @@ export const initiateFilterBoxes = () => {
             closeTheOpenBox();
         });
     });
-
 }
 
 //this appends a new span containing the selected filter. "collection" is identified by its id
-export const appendNewFilter = (filter, collection, type) => {
+export const appendNewFilter = (filter, category, collection, type) => {
 
-    filters[collection].appendChild(newFilterOption(filter, collection, type));
+    filters[collection].appendChild(newFilterOption(filter, category, type));
     
 }
 

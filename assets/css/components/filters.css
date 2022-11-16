@@ -62,10 +62,10 @@
 .ingredients {
     background-color: var(--blue);
 }
-.appareils {
+.appliances {
     background-color: var(--green);
 }
-.ustensiles {
+.ustensils {
     background-color: var(--red);
 }
 .optionBox {
@@ -84,6 +84,7 @@
 .closedBox .filterSearchBar {
     display: none;
 }
+
 .filterSearchBar {
     background-color: transparent;
     border: none;
