@@ -25,30 +25,24 @@ export const mainSearch = () => {
 
 const searchWithArrayMethods = () => {
 
-    let index = 0;
-    recipes.forEach( recipe => {
-        
-        let formatedRecipe = formatRecipe(recipe, index); 
-        
-        let valid = false;
+    for(let index = 0; index < recipes.length; index++ ) {
 
-        if(recipeContainsAllTags(formatedRecipe) == true ) {
-            valid = true;
+        let formatedRecipe = formatRecipe(recipes[index], index);
+
+        if(recipeContainsAllTags(formatedRecipe) == false ) {
+            continue;
         }
-        if(valid) {
-            let index = searchQueryIsFoundInRecipe(searchQuery, formatedRecipe);
+        let index = searchQueryIsFoundInRecipe(searchQuery, formatedRecipe);
+        if( index > -1) {
 
-            if( index > -1) {
+            injectRecipeToTheDom(recipes[index]);
+            extractIngFilters(formatedRecipe.ingredients);
+            extractAppFilters(formatedRecipe.appliance);
+            extractUstFilters(formatedRecipe.ustensils);
+        } 
 
-                injectRecipeToTheDom(recipes[index]);
-                extractIngFilters(formatedRecipe.ingredients);
-                extractAppFilters(formatedRecipe.appliance);
-                extractUstFilters(formatedRecipe.ustensils);
-            } 
-        }
+    }
 
-        index++;
-    })
 }
 
 const searchQueryIsFoundInRecipe = (searchQuery, recipe) => {
