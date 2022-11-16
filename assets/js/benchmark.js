@@ -94,7 +94,7 @@ const formatWithLoops = (recipe) => {
 	}
 
 	let customRecipe = {
-        mainString: `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${strignifyIngredients(recipe.ingredients)}`,
+        mainString: `${recipe.name.toLowerCase()} ${ingredients} ${ingredients}`,
         ingredients: ingredients,
         appliance: appliance,
         ustensils: ustensils,
@@ -123,7 +123,7 @@ const searchWithLoops = (query) => {
 	console.time("test with native loops: ");
 	for(let i = 0; i < listOfRecipes.length; i++) {
 
-		let recipe = formatWithMethods(listOfRecipes[i]);
+		let recipe = formatWithLoops(listOfRecipes[i]);
 		if( queryIsInRecipe(recipe.mainString, query)) {
 		}
 
