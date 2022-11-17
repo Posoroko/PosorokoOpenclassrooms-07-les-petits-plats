@@ -25,9 +25,9 @@ export const mainSearch = () => {
 
 const searchWithArrayMethods = () => {
 
-    for(let index = 0; index < recipes.length; index++ ) {
+    for(let i = 0; i < recipes.length; i++ ) {
 
-        let formatedRecipe = formatRecipe(recipes[index], index);
+        let formatedRecipe = formatRecipe(recipes[i], i);
 
         if(recipeContainsAllTags(formatedRecipe) == false ) {
             continue;
