@@ -16,21 +16,26 @@ export const buildArrayOfFormatedRecipes = () => {
 }
 
 export const formatRecipe = (recipe, index) => {
-    
-    //array of sipmplified ingredients
-    let ingredients = recipe.ingredients.map(ing => ing.ingredient.toLowerCase());
-    let appliance = recipe.appliance.toLowerCase();
-    let ustensils = recipe.ustensils.map(ust => ust = ust.toLowerCase());
 
-    let customRecipe = {
-        mainString: `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${strignifyIngredients(recipe.ingredients)}`,
+    let ingredients = [];
+	let appliance = recipe.appliance.toLowerCase();
+	let ustensils = [];
+
+	for(let i = 0; i < recipe.ingredients.length; i++) {
+		ingredients.push(recipe.ingredients[i].ingredient);
+	}
+	for(let i = 0; i < recipe.ustensils.length; i++) {
+		ustensils.push(recipe.ustensils[i]);
+	}
+
+	let customRecipe = {
+        mainString: `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${ingredients}`,
         ingredients: ingredients,
         appliance: appliance,
         ustensils: ustensils,
         index: index
     }
- 
-    return customRecipe;
+	return customRecipe;
 
 }
 

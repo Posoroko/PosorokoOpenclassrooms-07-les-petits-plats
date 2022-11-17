@@ -94,7 +94,9 @@ const formatWithLoops = (recipe) => {
 	}
 
 	let customRecipe = {
+
         mainString: `${recipe.name.toLowerCase()} ${ingredients} ${ingredients}`,
+
         ingredients: ingredients,
         appliance: appliance,
         ustensils: ustensils,
