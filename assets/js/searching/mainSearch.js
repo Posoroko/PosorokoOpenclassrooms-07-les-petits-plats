@@ -25,6 +25,9 @@ export const mainSearch = () => {
 
 const searchWithArrayMethods = () => {
 
+
+    // here will be a foreach loop
+
     for(let i = 0; i < recipes.length; i++ ) {
 
         let formatedRecipe = formatRecipe(recipes[i], i);
