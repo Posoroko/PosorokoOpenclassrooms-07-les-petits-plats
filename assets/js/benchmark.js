@@ -1,3 +1,7 @@
+//this code is only for testing purposes. It's the code used in jsbech.me
+//it only runs in the test.html file
+
+
 let recipes = [{
 	"id": 1,
 	"name" : "Limonade de Coco",
