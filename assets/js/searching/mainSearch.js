@@ -19,11 +19,11 @@ export const mainSearch = () => {
 
     renderTagList();
 
-    searchWithArrayMethods();
+    searchWithNativeLoops();
 
 }
 
-const searchWithArrayMethods = () => {
+const searchWithNativeLoops = () => {
 
     for(let i = 0; i < recipes.length; i++ ) {
 
