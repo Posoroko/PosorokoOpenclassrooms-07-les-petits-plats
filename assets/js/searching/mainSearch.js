@@ -16,36 +16,37 @@ export const mainSearch = () => {
     emptyFilterList("listOfUstensils");
     resetSelectedFilters();
     emptyCardCollection();
-
     renderTagList();
 
     searchWithArrayMethods();
-
 }
 
 const searchWithArrayMethods = () => {
 
+    let valid = false;
+    //tis counter passes the index of the recipe being treated
+    let counter = 0;
+    // <=
+    
+    recipes.forEach( recipe => {
+        let formatedRecipe = formatRecipe(recipe, counter);
 
-    // here will be a foreach loop
-
-    for(let i = 0; i < recipes.length; i++ ) {
-
-        let formatedRecipe = formatRecipe(recipes[i], i);
-
-        if(recipeContainsAllTags(formatedRecipe) == false ) {
-            continue;
+        if(recipeContainsAllTags(formatedRecipe) == true ) {
+            valid= true;
         }
-        let index = searchQueryIsFoundInRecipe(searchQuery, formatedRecipe);
-        if( index > -1) {
 
-            injectRecipeToTheDom(recipes[index]);
-            extractIngFilters(formatedRecipe.ingredients);
-            extractAppFilters(formatedRecipe.appliance);
-            extractUstFilters(formatedRecipe.ustensils);
-        } 
+        if(valid) {
+            let index = searchQueryIsFoundInRecipe(searchQuery, formatedRecipe);
+            if( index > -1) {
 
-    }
-
+                injectRecipeToTheDom(recipes[index]);
+                extractIngFilters(formatedRecipe.ingredients);
+                extractAppFilters(formatedRecipe.appliance);
+                extractUstFilters(formatedRecipe.ustensils);
+            } 
+        }
+        counter++;
+    });
 }
 
 const searchQueryIsFoundInRecipe = (searchQuery, recipe) => {
@@ -63,8 +64,6 @@ const recipeContainsAllTags = (recipe) => {
     if(tagList.length == 0) {
         return true;
     }
-
-    let allTagsFound = false
     
     for(let i = 0; i < tagList.length; i++) {
         let type = tagList[i].type;
