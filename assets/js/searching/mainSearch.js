@@ -32,7 +32,7 @@ const searchWithArrayMethods = () => {
         let formatedRecipe = formatRecipe(recipe, counter);
 
         if(recipeContainsAllTags(formatedRecipe) == true ) {
-            valid= true;
+            valid = true;
         }
 
         if(valid) {
@@ -45,6 +45,7 @@ const searchWithArrayMethods = () => {
                 extractUstFilters(formatedRecipe.ustensils);
             } 
         }
+        valid = false;
         counter++;
     });
 }
@@ -64,9 +65,10 @@ const recipeContainsAllTags = (recipe) => {
     if(tagList.length == 0) {
         return true;
     }
-    
+
     let recipeKeywords = recipe.ingredients.concat(recipe.appliance, recipe.ustensils);
     let allTagsAreFound = tagList.every(tag => recipeKeywords.includes(tag.value));
+    console.log(recipeKeywords, tagList, allTagsAreFound);
 
     return allTagsAreFound;
 
