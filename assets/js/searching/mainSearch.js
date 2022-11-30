@@ -60,46 +60,14 @@ const searchQueryIsFoundInRecipe = (searchQuery, recipe) => {
 }
 
 const recipeContainsAllTags = (recipe) => {
-    
+
     if(tagList.length == 0) {
         return true;
     }
     
-    for(let i = 0; i < tagList.length; i++) {
-        let type = tagList[i].type;
-        let tag = tagList[i].value;
-        let keywords = [];
+    let recipeKeywords = recipe.ingredients.concat(recipe.appliance, recipe.ustensils);
+    let allTagsAreFound = tagList.every(tag => recipeKeywords.includes(tag.value));
 
-        let tagFound = false;
-
-        switch(type) {
-
-            case 'ingredient':
-
-                keywords = recipe.ingredients;
-                break;
-
-            case 'appliance':
-                keywords.push(recipe.appliance);
-                break;
-
-            case 'ustensil':
-                keywords = recipe.ustensils
-        }
-
-        keywords.forEach( word => {
-            
-            if(word == tag) {
-                tagFound = true;
-            }
-        })
-
-        if(tagFound == false) {
-
-            return false;
-        }
-    }
-
-    return true;
+    return allTagsAreFound;
 
 }
