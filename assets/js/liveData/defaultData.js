@@ -19,16 +19,16 @@ export const formatRecipe = (recipe, index) => {
 	let ustensils = [];
 
 	for(let i = 0; i < recipe.ingredients.length; i++) {
-		ingredients.push(recipe.ingredients[i].ingredient);
+		ingredients.push(recipe.ingredients[i].ingredient.toLowerCase());
 	}
 	for(let i = 0; i < recipe.ustensils.length; i++) {
-		ustensils.push(recipe.ustensils[i]);
+		ustensils.push(recipe.ustensils[i].toLowerCase());
 	}
 
 	let customRecipe = {
         mainString: `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${ingredients}`,
         ingredients: ingredients,
-        appliance: appliance,
+        appliance: appliance.toLowerCase(),
         ustensils: ustensils,
         index: index
     }
