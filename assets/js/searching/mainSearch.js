@@ -57,7 +57,6 @@ const searchQueryIsFoundInRecipe = (searchQuery, recipe) => {
 
 const recipeContainsAllTags = (recipe) => {
 
-    
     if(tagList.length == 0) {
         return true;
     }
